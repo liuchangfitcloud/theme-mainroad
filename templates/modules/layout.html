@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="html (content)">
+
+<head>
+  <link rel="stylesheet" th:href="@{/assets/dist/style.css}" href="./assets/dist/style.css" />
+  <script th:src="@{/assets/dist/main.iife.js}"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${site.title}"></title>
+  <link th:if="${not #strings.isEmpty(site.logo)}" th:href="@{${site.logo}}" rel="icon">
+  <link th:if="${#strings.isEmpty(site.logo)}" th:href="@{/assets/images/favicon.png}" rel="icon">
+</head>
+
+<body class="body js">
+  <div class="container container--outer">
+    <!-- 头部包含菜单 -->
+    <header class="header">
+      <div class="container header__container">
+        <div class="logo">
+          <a class="logo__link" href="/" title="Mainroad" rel="home">
+            <div class="logo__item logo__text">
+              <div class="logo__title" th:text="${site.title}"></div>
+              <div class="logo__tagline" th:unless="${#strings.isEmpty(site.subtitle)}" th:text="${site.subtitle}"></div>
+            </div>
+          </a>
+        </div>
+        <nav class="menu" th:with="menu = ${menuFinder.getPrimary()}">
+          <button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+            <span class="menu__btn-title" tabindex="-1">菜单</span>
+          </button>
+          <ul class="menu__list" th:with="menuItems = ${menu.menuItems}">
+            <th:block th:with="path=${#ctx.getExchange().getRequest().getRequestPath()}, queryString=${#objects.nullSafe(#ctx.getExchange().getRequest().getQueryString(),'')}">
+              <li th:class="${menuItem.status.href == (path + (#strings.isEmpty(queryString) ? '' : '?' + queryString))} ? 'menu__item--active' : ''" th:each="menuItem : ${menuItems}">
+                <a class="menu__link" th:href="@{${menuItem.status.href}}" th:target="${menuItem.spec.target?.value}">
+                  <span class="menu__text" th:text="${menuItem.status.displayName}"></span>
+                </a>
+              </li>
+            </th:block>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="wrapper flex">
+      <!-- 内容 -->
+      <th:block th:replace="${content}" />
+    </div>
+    <!--底部-->
+    <footer class="footer">
+      <div class="container footer__container flex">
+        <div class="footer__copyright">
+          © 2023 Mainroad.
+          <span class="footer__copyright-credits">Power By <a href="https://halo.run/" rel="nofollow noopener"
+              target="_blank">Halo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener"
+              target="_blank">Mainroad</a> theme.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

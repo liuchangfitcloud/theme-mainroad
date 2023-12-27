@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(content = ~{::content})}">
+  <th:block th:fragment="content">
+    <div class="primary">
+      <main class="main list" role="main">
+        <header class="main__header">
+          <h1 class="main__title" th:text="${category.spec.displayName}"></h1>
+        </header>
+        <article class="list__item post" th:each="post : ${posts.items}">
+          <figure class="list__thumbnail thumbnail" th:unless="${#strings.isEmpty(post.spec.cover)}">
+            <a class="thumbnail__link" th:href="${post.status.permalink}">
+              <img class="thumbnail__image" th:src="@{${post.spec.cover}}" alt="Customization">
+            </a>
+          </figure>
+          <header class="list__header">
+            <h2 class="list__title post__title">
+              <a th:href="${post.status.permalink}" rel="bookmark" th:text="${post.spec.title}">
+              </a>
+            </h2>
+            <!-- <p class="list__lead post__lead" th:unless="${#strings.isEmpty(post.spec.excerpt.raw)}" th:text="${post.spec.excerpt.raw}"></p> -->
+            <div class="list__meta meta">
+              <div class="meta__item-datetime meta__item">
+                <svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28">
+                  <path
+                    d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z">
+                  </path>
+                </svg>
+                <time class="meta__text" th:datetime="${post.spec.publishTime}"
+                  th:text="${#dates.format(post.spec.publishTime,'yyyy MM dd HH:mm:ss')}"></time>
+              </div>
+              <div class="meta__item-categories meta__item" th:unless="${#lists.isEmpty(post.categories)}">
+                <th:block th:with="categories = ${post.categories}">
+                  <svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16">
+                    <path d="m7 2l1 2h8v11h-16v-13z"></path>
+                  </svg>
+                  <span class="meta__text">
+                    <th:block th:each="categorie : ${categories}">
+                      <a class="meta__link" th:href="@{${categorie.status.permalink}}" rel="category"
+                        th:text="${categorie.spec.displayName}"></a>&nbsp;
+                    </th:block>
+                  </span>
+                </th:block>
+              </div>
+            </div>
+          </header>
+          <div class="content list__excerpt post__content clearfix">
+            <p th:text="${post.status.excerpt}"></p>
+            <p></p>
+          </div>
+        </article>
+        <div>
+          <div class="page-bar" th:if="${posts.hasPrevious() || posts.hasNext()}">
+            <a th:href="@{${posts.prevUrl}}">
+              <span>上一页</span>
+            </a>
+            <span th:text="${posts.page} +' / '+ ${posts.totalPages}"></span>
+            <a th:href="@{${posts.nextUrl}}">
+              <span>下一页</span>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+    <aside class="sidebar">
+      <div class="widget-search widget" th:if="${pluginFinder.available('PluginSearchWidget')}">
+        <form class="widget-search__form" role="search">
+          <label>
+            <input class="widget-search__field" type="search" placeholder="检索全文" value="" name="q" aria-label="检索全文">
+          </label>
+        </form>
+      </div>
+      <div class="widget-recent widget" th:unless="${#lists.isEmpty(posts.items)}">
+        <h4 class="widget__title">文章列表</h4>
+        <div class="widget__content">
+          <ul class="widget__list">
+            <li class="widget__item" th:each="post : ${posts.items}"><a class="widget__link" th:href="@{${post.status.permalink}}"
+                th:text="${post.spec.title}"></a></li>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <th:block th:with="categories = ${categoryFinder.listAll()}">
+        <div class="widget-categories widget" th:unless="${#lists.isEmpty(categories)}">
+          <h4 class="widget__title">分类</h4>
+          <div class="widget__content">
+            <ul class="widget__list">
+              <li class="widget__item" th:each="category : ${categories}">
+                <a class="widget__link" th:href="@{${category.status.permalink}}">
+                  <span th:text="${category.spec.displayName}"></span>
+                  <span th:text="'('+${category.status.postCount}+')'"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </th:block>
+      <th:block th:with="tags = ${tagFinder.listAll()}">
+        <div class="widget-taglist widget" th:unless="${#lists.isEmpty(tags)}">
+          <h4 class="widget__title">标签</h4>
+          <div class="widget__content">
+            <a th:each="tag : ${tags}" class="widget-taglist__link widget__link btn" th:href="@{${tag.status.permalink}}" th:title="${tag.spec.displayName}"><span th:text="${tag.spec.displayName}"></span><span th:text="'('+${tag.status.postCount}+')'"></span></a>
+          </div>
+        </div>
+      </th:block>
+      <div class="widget-text widget">
+        <h4 class="widget__title">支持我们</h4>
+        <div class="widget__content">
+          <p>如果你喜欢 <strong>Mainroad</strong> 主题, 请您花费几秒钟给我们的 Github 仓库点个 Star</p>
+          <iframe src="https://ghbtns.com/github-btn.html?user=halo-dev&repo=halo&type=star&count=true&size=large"
+            frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+        </div>
+      </div>
+    </aside>
+  </th:block>
+</html>

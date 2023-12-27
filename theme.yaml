@@ -1,0 +1,17 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: theme-hugo-mainroad
+spec:
+  displayName: Hugo Mainroad
+  author:
+    name: 一个达不刘
+    website: https://www.halo.run
+  description: A Halo Theme for Hugo Mainroad
+  logo: /themes/theme-hugo-mainroad/assets/images/favicon.png
+  website: https://github.com/Vimux/Mainroad
+  repo: https://github.com/liuchangfitcloud/theme-hugo-fresh.git
+  settingName: "theme-hugo-mainroad-setting"
+  configMapName: "theme-hugo-mainroad-configMap"
+  version: 1.0.0
+  require: ">=2.0.0"

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(content = ~{::content})}">
+  <th:block th:fragment="content">
+    <div class="content">
+      <div style="padding-top: 2rem;">
+        <article>
+          <div th:utext="${singlePage.content.content}"></div>
+        </article>
+      </div>
+    </div>
+  </th:block>
+</html>
