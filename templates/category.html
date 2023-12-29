@@ -9,7 +9,7 @@
         <article class="list__item post" th:each="post : ${posts.items}">
           <figure class="list__thumbnail thumbnail" th:unless="${#strings.isEmpty(post.spec.cover)}">
             <a class="thumbnail__link" th:href="${post.status.permalink}">
-              <img class="thumbnail__image" th:src="@{${post.spec.cover}}" alt="Customization">
+              <img class="thumbnail__image" th:src="@{${post.spec.cover}}" th:alt="${post.spec.title}">
             </a>
           </figure>
           <header class="list__header">
