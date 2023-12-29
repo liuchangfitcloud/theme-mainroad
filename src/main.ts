@@ -23,12 +23,6 @@ const init = () => {
   const menu = document.querySelector('.menu__list');
   menuBtn?.addEventListener('click', toggleMenu, false);
   menu?.addEventListener('transitionend', removeMenuTransition, false);
-
-  // 出发搜索按钮
-  const widget = document.querySelector(".widget-search__field");
-  widget?.addEventListener('focus', function () {
-    SearchWidget.open()
-  })
 }
 
 window.addEventListener("DOMContentLoaded", init);

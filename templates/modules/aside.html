@@ -2,7 +2,7 @@
   <div class="widget-search widget" th:if="${pluginFinder.available('PluginSearchWidget')}">
     <form class="widget-search__form" role="search">
       <label>
-        <input class="widget-search__field" type="search" placeholder="检索全文" value="" name="q" aria-label="检索全文">
+        <input class="widget-search__field" onfocus="SearchWidget.open()" type="search" placeholder="检索全文" value="" name="q" aria-label="检索全文">
       </label>
     </form>
   </div>
