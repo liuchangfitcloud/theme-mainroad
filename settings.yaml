@@ -36,13 +36,13 @@ spec:
           if: "$get(supportShow).value && $get(showGit).value"
           label: Git仓库的归属
           help: "https://github.com/halo-dev/halo 这里填写halo-dev"
-          value: halo-dev
+          value: liuchangfitcloud
         - $formkit: text
           if: "$get(supportShow).value && $get(showGit).value"
           name: repo
           label: 具体仓库
           help: "https://github.com/halo-dev/halo 这里填写halo"
-          value: halo
+          value: theme-mainroad
     - group: bottombar
       label: 底部
       formSchema: 
@@ -56,4 +56,4 @@ spec:
           name: desc
           if: "$get(showBottom).value"
           label: 底部代码
-          value: <div class="container footer__container flex"><div class="footer__copyright">© 2023 Mainroad.<span class="footer__copyright-credits">Power By <a href="https://halo.run/" rel="nofollow noopener"target="_blank">Halo</a> and <a href="https://github.com/liuchangfitcloud/theme-hugo-mainroad" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div></div>      
+          value: <div class="container footer__container flex"><div class="footer__copyright">© 2023 Mainroad.<span class="footer__copyright-credits">Power By <a href="https://halo.run/" rel="nofollow noopener"target="_blank">Halo</a> and <a href="https://github.com/liuchangfitcloud/theme-mainroad" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div></div>      
