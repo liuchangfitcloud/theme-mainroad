@@ -3,18 +3,26 @@
   <th:block th:fragment="content">
     <div class="primary">
       <th:block th:each="archive : ${archives.items}">
-        <h1 th:text="${archive.year}"></h1>
-        <ul>
-          <th:block th:each="month : ${archive.months}">
-            <span th:text="${month.month}"></span>
-            <li th:each="post : ${month.posts}">
-              <a th:href="@{${post.status.permalink}}" th:text="${post.spec.title}">
-              </a>
-            </li>
-          </th:block>
-        </ul>
+        <h1 th:text="${archive.year} + ' 年'"></h1>
+        <div class="archive-month">
+          <div th:each="month : ${archive.months}">
+            <div class="month-text">
+              <span th:text="${month.month} + ' 月'"></span>
+            </div>
+            <div class="month-post">
+              <ul>
+                <li th:each="post : ${month.posts}">
+                  <a th:href="@{${post.status.permalink}}">
+                    <span th:text="${#dates.format(post.spec.publishTime,'dd日 HH:mm:ss')}"></span>
+                    <span th:text="${post.spec.title}"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </th:block>
-      <div th:if="${archives.hasPrevious() || archives.hasNext()}">
+      <div class="page-bar" th:if="${archives.hasPrevious() || archives.hasNext()}">
         <a th:href="@{${archives.prevUrl}}">
           <span>上一页</span>
         </a>
@@ -24,57 +32,6 @@
         </a>
       </div>
     </div>
-    <aside class="sidebar">
-      <div class="widget-search widget" th:if="${pluginFinder.available('PluginSearchWidget')}">
-        <form class="widget-search__form" role="search">
-          <label>
-            <input class="widget-search__field" type="search" placeholder="检索全文" value="" name="q" aria-label="检索全文">
-          </label>
-        </form>
-      </div>
-      <div class="widget-recent widget" th:unless="${#lists.isEmpty(posts.items)}">
-        <h4 class="widget__title">文章列表</h4>
-        <div class="widget__content">
-          <ul class="widget__list">
-            <li class="widget__item" th:each="post : ${posts.items}"><a class="widget__link"
-                th:href="@{${post.status.permalink}}" th:text="${post.spec.title}"></a></li>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <th:block th:with="categories = ${categoryFinder.listAll()}">
-        <div class="widget-categories widget" th:unless="${#lists.isEmpty(categories)}">
-          <h4 class="widget__title">分类</h4>
-          <div class="widget__content">
-            <ul class="widget__list">
-              <li class="widget__item" th:each="category : ${categories}">
-                <a class="widget__link" th:href="@{${category.status.permalink}}">
-                  <span th:text="${category.spec.displayName}"></span>
-                  <span th:text="'('+${category.status.postCount}+')'"></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </th:block>
-      <th:block th:with="tags = ${tagFinder.listAll()}">
-        <div class="widget-taglist widget" th:unless="${#lists.isEmpty(tags)}">
-          <h4 class="widget__title">标签</h4>
-          <div class="widget__content">
-            <a th:each="tag : ${tags}" class="widget-taglist__link widget__link btn" th:href="@{${tag.status.permalink}}"
-              th:title="${tag.spec.displayName}"><span th:text="${tag.spec.displayName}"></span><span
-                th:text="'('+${tag.status.postCount}+')'"></span></a>
-          </div>
-        </div>
-      </th:block>
-      <div class="widget-text widget">
-        <h4 class="widget__title">支持我们</h4>
-        <div class="widget__content">
-          <p>如果你喜欢 <strong>Mainroad</strong> 主题, 请您花费几秒钟给我们的 Github 仓库点个 Star</p>
-          <iframe src="https://ghbtns.com/github-btn.html?user=halo-dev&repo=halo&type=star&count=true&size=large"
-            frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
-        </div>
-      </div>
-    </aside>
+    <th:block th:replace="~{modules/aside::postShow(false)}" />
   </th:block>
 </html>

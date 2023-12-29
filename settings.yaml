@@ -4,10 +4,56 @@ metadata:
   name: theme-hugo-mainroad-setting
 spec:
   forms:
-    - group: styles
-      label: 样式
+    - group: sidebar
+      label: 侧边栏
       formSchema:
-        - $formkit: color
-          name: background_color
-          label: 背景颜色
-          value: "#f2f2f2"
+        - $formkit: checkbox
+          name: supportShow
+          id: supportShow
+          key: supportShow
+          label: 显示支持我们
+          value: true
+        - $formkit: text
+          name: title
+          if: "$get(supportShow).value"
+          label: 标题
+          value: 支持我们
+        - $formkit: code
+          if: "$get(supportShow).value"
+          name: desc
+          label: 显示的内容
+          language: html
+          value: <p>如果你喜欢 <strong>Mainroad</strong> 主题, 请您花费几秒钟给我们的 Github 仓库点个 Star</p>
+        - $formkit: checkbox
+          if: "$get(supportShow).value"
+          name: showGit
+          id: showGit
+          key: showGit
+          label: "显示 Git Star"
+          value: true
+        - $formkit: text
+          name: user
+          if: "$get(supportShow).value && $get(showGit).value"
+          label: Git仓库的归属
+          help: "https://github.com/halo-dev/halo 这里填写halo-dev"
+          value: halo-dev
+        - $formkit: text
+          if: "$get(supportShow).value && $get(showGit).value"
+          name: repo
+          label: 具体仓库
+          help: "https://github.com/halo-dev/halo 这里填写halo"
+          value: halo
+    - group: bottombar
+      label: 底部
+      formSchema: 
+        - $formkit: checkbox
+          name: showBottom
+          id: showBottom
+          key: showBottom
+          label: 显示底部
+          value: true
+        - $formkit: code
+          name: desc
+          if: "$get(showBottom).value"
+          label: 底部代码
+          value: <div class="container footer__container flex"><div class="footer__copyright">© 2023 Mainroad.<span class="footer__copyright-credits">Power By <a href="https://halo.run/" rel="nofollow noopener"target="_blank">Halo</a> and <a href="https://github.com/liuchangfitcloud/theme-hugo-mainroad" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div></div>      

@@ -1,0 +1,59 @@
+<aside class="sidebar" th:fragment="postShow(show)">
+  <div class="widget-search widget" th:if="${pluginFinder.available('PluginSearchWidget')}">
+    <form class="widget-search__form" role="search">
+      <label>
+        <input class="widget-search__field" type="search" placeholder="检索全文" value="" name="q" aria-label="检索全文">
+      </label>
+    </form>
+  </div>
+  <div th:if="show" class="widget-recent widget" th:unless="${#lists.isEmpty(posts.items)}">
+    <h4 class="widget__title">文章列表</h4>
+    <div class="widget__content">
+      <ul class="widget__list">
+        <li class="widget__item" th:each="post : ${posts.items}"><a class="widget__link"
+            th:href="@{${post.status.permalink}}" th:text="${post.spec.title}"></a></li>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <th:block th:with="categories = ${categoryFinder.listAll()}">
+    <div class="widget-categories widget" th:unless="${#lists.isEmpty(categories)}">
+      <h4 class="widget__title">分类</h4>
+      <div class="widget__content">
+        <ul class="widget__list">
+          <li class="widget__item" th:each="category : ${categories}">
+            <a class="widget__link" th:href="@{${category.status.permalink}}">
+              <span th:text="${category.spec.displayName}"></span>
+              <span th:text="'('+${category.status.postCount}+')'"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </th:block>
+  <th:block th:with="tags = ${tagFinder.listAll()}">
+    <div class="widget-taglist widget" th:unless="${#lists.isEmpty(tags)}">
+      <h4 class="widget__title">标签</h4>
+      <div class="widget__content">
+        <th:block th:each="tagItem : ${tags}">
+          <a th:if="${#strings.isEmpty(tag.spec.displayName)} or (${tag.spec.displayName} != ${tagItem.spec.displayName})" class="widget-taglist__link widget__link btn" th:href="@{${tagItem.status.permalink}}"
+            th:title="${tagItem.spec.displayName}"><span th:text="${tagItem.spec.displayName}"></span><span
+              th:text="'('+${tagItem.status.postCount}+')'"></span></a>
+          <a th:unless="${#strings.isEmpty(tag.spec.displayName)} or (${tag.spec.displayName} != ${tagItem.spec.displayName})" class="widget-taglist__link widget__link btn active"
+            th:href="@{${tagItem.status.permalink}}" th:title="${tagItem.spec.displayName}"><span
+              th:text="${tagItem.spec.displayName}"></span><span th:text="'('+${tagItem.status.postCount}+')'"></span></a>
+        </th:block>
+      </div>
+    </div>
+  </th:block>
+  <div class="widget-text widget" th:if="${theme.config.sidebar.supportShow}">
+    <h4 class="widget__title" th:text="${theme.config.sidebar.title}"></h4>
+    <div class="widget__content">
+      <th:block th:utext="${theme.config.sidebar.desc}"></th:block>
+      <th:block th:if="${theme.config.sidebar.showGit}">
+        <iframe th:src="'https://ghbtns.com/github-btn.html?user=' + ${theme.config.sidebar.user} + '&repo=' + ${theme.config.sidebar.repo} + '&type=star&count=true&size=large'" frameborder="0"
+          scrolling="0" width="170" height="30" title="GitHub"></iframe>
+      </th:block>
+    </div>
+  </div>
+</aside>

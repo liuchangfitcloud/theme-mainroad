@@ -45,15 +45,9 @@
       <th:block th:replace="${content}" />
     </div>
     <!--底部-->
-    <footer class="footer">
-      <div class="container footer__container flex">
-        <div class="footer__copyright">
-          © 2023 Mainroad.
-          <span class="footer__copyright-credits">Power By <a href="https://halo.run/" rel="nofollow noopener"
-              target="_blank">Halo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener"
-              target="_blank">Mainroad</a> theme.</span>
-        </div>
-      </div>
+    <footer class="footer" th:if="${theme.config.bottombar.showBottom}">
+      <th:block th:utext="${theme.config.bottombar.desc}">
+      </th:block>
     </footer>
   </div>
 </body>
