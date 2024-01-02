@@ -10,7 +10,7 @@ spec:
   description: A Halo Theme for Hugo Mainroad
   logo: /themes/theme-hugo-mainroad/assets/images/favicon.png
   website: https://liuchang.halo.run
-  repo: https://github.com/liuchangfitcloud/theme-hugo-fresh.git
+  repo: https://github.com/liuchangfitcloud/theme-mainroad.git
   settingName: "theme-mainroad-setting"
   configMapName: "theme-mainroad-configMap"
   version: 1.0.0
