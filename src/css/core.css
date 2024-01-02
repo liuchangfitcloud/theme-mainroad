@@ -527,9 +527,9 @@ select {
   max-height: 256px;
 }
 
-.logo__text {
+/* .logo__text {
   text-transform: uppercase;
-}
+} */
 
 .logo--mixed .logo__item {
   margin: .5rem auto;
@@ -596,7 +596,7 @@ select {
   padding: .625rem .9375rem;
   font-weight: 700;
   text-align: right;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -645,7 +645,7 @@ button:not(:-moz-focusring):focus>.menu__btn-title {
   padding: .625rem .9375rem;
   font-weight: 700;
   color: #fff;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .menu__link:hover {
@@ -917,7 +917,7 @@ button:not(:-moz-focusring):focus>.menu__btn-title {
 .toc__title {
   padding: 5px 10px;
   color: #fff;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1066,7 +1066,7 @@ button:not(:-moz-focusring):focus>.menu__btn-title {
   margin-bottom: 5px;
   font-weight: 700;
   line-height: 1;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .pager__title {
@@ -1161,7 +1161,7 @@ input[type=reset] {
   padding: 10px 15px;
   font-weight: 700;
   color: #fff;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   cursor: pointer;
   background: #2a2a2a;
   border: 0;
@@ -1199,7 +1199,7 @@ textarea {
   padding-bottom: 5px;
   font-size: 16px;
   font-size: 1rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 
   border-bottom: 3px solid var(--highlightColor);
 }

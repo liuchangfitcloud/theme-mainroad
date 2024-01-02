@@ -1,7 +1,7 @@
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: theme-hugo-mainroad-setting
+  name: theme-mainroad-setting
 spec:
   forms:
     - group: sidebar

@@ -1,28 +1,28 @@
 {
-  "description": "A development starter theme with Vite Ecosystem for Halo",
+  "description": "Mainroad theme for Halo",
   "keywords": [
     "halo",
     "halo-theme"
   ],
-  "homepage": "https://github.com/halo-dev/theme-vite-starter#readme",
+  "homepage": "https://github.com/liuchangfitcloud/theme-mainroad#readme",
   "bugs": {
-    "url": "https://github.com/halo-dev/theme-vite-starter/issues"
+    "url": "https://github.com/liuchangfitcloud/theme-mainroad/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/halo-dev/theme-vite-starter"
+    "url": "https://github.com/liuchangfitcloud/theme-mainroad"
   },
-  "license": "GPL-3.0",
+  "license": "GPL-2.0",
   "author": {
-    "name": "Halo",
-    "email": "hi@halo.run",
-    "url": "https://github.com/halo-dev"
+    "name": "liuchangfitcloud",
+    "email": "liuchang.cloud@gmail.com",
+    "url": "https://github.com/liuchangfitcloud"
   },
   "maintainers": [
     {
-      "name": "Ryan Wang",
-      "email": "i@ryanc.cc",
-      "url": "https://github.com/ruibaby"
+      "name": "Charlie Liu",
+      "email": "liuchang.cloud@gmail.com",
+      "url": "https://github.com/liuchangfitcloud"
     }
   ],
   "scripts": {
