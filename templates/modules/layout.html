@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" th:fragment="html (content)">
+<html lang="en" th:fragment="html (title,content)">
 
 <head>
   <link rel="stylesheet" th:href="@{/assets/dist/style.css}" href="./assets/dist/style.css" />
   <script th:src="@{/assets/dist/main.iife.js}"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title th:text="${site.title}"></title>
-  <link th:if="${not #strings.isEmpty(site.logo)}" th:href="@{${site.logo}}" rel="icon">
-  <link th:if="${#strings.isEmpty(site.logo)}" th:href="@{/assets/images/favicon.png}" rel="icon">
+  <title th:text="${title}"></title>
+  <!-- <link th:if="${not #strings.isEmpty(site.logo)}" th:href="@{${site.logo}}" rel="icon">
+  <link th:if="${#strings.isEmpty(site.logo)}" th:href="@{/assets/images/favicon.png}" rel="icon"> -->
 </head>
 
 <body class="body js">

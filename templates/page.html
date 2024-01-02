@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(content = ~{::content})}">
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(title = |${singlePage.spec.title} - ${site.title}|, content = ~{::content})}">
   <th:block th:fragment="content">
     <div class="content">
       <div style="padding-top: 2rem;">
         <article>
           <div th:utext="${singlePage.content.content}"></div>
         </article>
+        <div style="padding-top: 1rem;" th:if="${haloCommentEnabled}">
+          <halo:comment group="content.halo.run" kind="Post" th:attr="name=${singlePage.metadata.name}"
+            colorScheme="document.documentElement.dataset.colorScheme" />
+        </div>
       </div>
     </div>
   </th:block>
