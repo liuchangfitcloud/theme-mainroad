@@ -241,6 +241,104 @@ body {
   max-height: 90vh;
 }
 
+.link-content{
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.link-group-content{
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.inline-grid{
+  display: inline-grid;
+}
+
+.link-group-content .group-content{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  padding: 1rem .75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: .5rem;
+  -webkit-border-radius: .5rem;
+  -moz-border-radius: .5rem;
+  -ms-border-radius: .5rem;
+  -o-border-radius: .5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / .05);
+}
+
+.link-group-content .group-content img{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  -ms-border-radius: 9999px;
+  -o-border-radius: 9999px;
+  object-fit: fill;
+  vertical-align: middle;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / .1),
+    0 2px 4px -2px rgb(0 0 0 / .1);
+}
+
+.text-center{
+  text-align: center;
+}
+
+.link-group-content .group-content:hover{
+  border-color: rgb(0 0 0 / .75);
+}
+
+.link-group-content .group-content:hover img{
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / .3),
+      0 2px 4px -2px rgb(0 0 0 / .3);
+}
+
+.link-group-content .group-content .title{
+  font-weight: 500;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  color: #000;
+  display: block;
+}
+
+.link-group-content .group-content .desc{
+  color: rgb(0 0 0 / .6);
+  font-size: .875rem;
+  line-height: 1.25rem;
+}
+
+@media screen and (min-width: 640px) {
+  .link-group-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .link-group-content {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .link-group-content {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 1280px){
+  .link-group-content{
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
 .widget__link:hover{
   font-weight: 700;
 }

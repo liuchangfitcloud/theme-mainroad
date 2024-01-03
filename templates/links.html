@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{modules/layout :: html(headtitle = |友情链接 - ${site.title}|, content = ~{::content})}">
+<th:block th:fragment="content">
+  <div class="primary">
+    <div class="link-content">
+      <th:block th:each="group : ${groups}">
+        <div th:unless="${#lists.isEmpty(group.links)}">
+          <h3 th:unless="${#strings.isEmpty(group.spec.displayName)}"
+            th:text="${group.spec.displayName}"></h3>
+          <div class="link-group-content">
+            <a class="inline-grid" th:each="link : ${group.links}" th:href="${link.spec.url}" target="_blank">
+              <div class="group-content">
+                <div>
+                  <img th:src="${link.spec.logo}" th:alt="${link.spec.displayName}" />
+                </div>
+                <div class="text-center">
+                  <span class="title"
+                    th:text="${link.spec.displayName}"></span>
+                  <span class="desc" th:text="${link.spec.description}"></span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </th:block>
+    </div>
+  </div>
+</th:block>
+
+</html>
