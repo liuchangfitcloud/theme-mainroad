@@ -30,7 +30,7 @@
           </button>
           <ul class="menu__list" th:with="menuItems = ${menu.menuItems}">
             <th:block th:with="path=${#ctx.getExchange().getRequest().getRequestPath()}, queryString=${#objects.nullSafe(#ctx.getExchange().getRequest().getQueryString(),'')}">
-              <li th:class="${menuItem.status.href == (path + (#strings.isEmpty(queryString) or (path eq '/photos') ? '' : '?' + queryString))} ? 'menu__item--active' : ''" th:each="menuItem : ${menuItems}">
+              <li th:class="${menuItem.status.href == (path + (#strings.isEmpty(queryString) or (path eq '/photos') or (path eq '/moments') ? '' : '?' + queryString))} ? 'menu__item--active' : ''" th:each="menuItem : ${menuItems}">
                 <a class="menu__link" th:href="@{${menuItem.status.href}}" th:target="${menuItem.spec.target?.value}">
                   <span class="menu__text" th:text="${menuItem.status.displayName}"></span>
                 </a>

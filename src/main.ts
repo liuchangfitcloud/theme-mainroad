@@ -37,6 +37,7 @@ const init = () => {
   menuBtn?.addEventListener('click', toggleMenu, false);
   menu?.addEventListener('transitionend', removeMenuTransition, false);
 
+  // 显示的是图片的内容
   const images = document.querySelectorAll(".photos_content_img > img");
   if (images) {
     const preEle: HTMLElement = document.querySelector(".overlay .pre") as HTMLElement;
@@ -55,36 +56,35 @@ const init = () => {
           imageBox?.querySelector('img')?.setAttribute('src', imageSrc);
           imageBox?.querySelector('img')?.setAttribute('data-index',index+"")
           imageBox?.parentElement?.classList.toggle('show')
-
-          //触发按钮
-          window.addEventListener('keydown', function (event: KeyboardEvent) {
-            if (event.code === 'ArrowLeft') {
-              const imageBox = document.querySelector(".image-box");
-              const currentIndex = imageBox?.querySelector('img')?.getAttribute('data-index')
-              const index: number = Number(currentIndex) - 1
-              if (currentIndex && index > -1) {
-                const imageSrc = imageList[index]
-                showPreNextBtn(preEle, nextEle, index, imageList.length)
-                imageBox?.querySelector('img')?.setAttribute('src', imageSrc);
-                imageBox?.querySelector('img')?.setAttribute('data-index', index + "")
-              }
-            } else if (event.code === 'ArrowRight') {
-              const imageBox = document.querySelector(".image-box");
-              const currentIndex = imageBox?.querySelector('img')?.getAttribute('data-index')
-              const index: number = Number(currentIndex) + 1
-              if (currentIndex && index < imageList.length) {
-                const imageSrc = imageList[index]
-                showPreNextBtn(preEle, nextEle, index, imageList.length)
-                imageBox?.querySelector('img')?.setAttribute('src', imageSrc);
-                imageBox?.querySelector('img')?.setAttribute('data-index', index + "")
-              }
-            }
-          });
-
-          
         }
       })
     })
+
+    //触发按钮
+    window.addEventListener('keydown', function (event: KeyboardEvent) {
+      if (event.code === 'ArrowLeft') {
+        const imageBox = document.querySelector(".image-box");
+        const currentIndex = imageBox?.querySelector('img')?.getAttribute('data-index')
+        const index: number = Number(currentIndex) - 1
+        if (currentIndex && index > -1) {
+          const imageSrc = imageList[index]
+          showPreNextBtn(preEle, nextEle, index, imageList.length)
+          imageBox?.querySelector('img')?.setAttribute('src', imageSrc);
+          imageBox?.querySelector('img')?.setAttribute('data-index', index + "")
+        }
+      } else if (event.code === 'ArrowRight') {
+        const imageBox = document.querySelector(".image-box");
+        const currentIndex = imageBox?.querySelector('img')?.getAttribute('data-index')
+        const index: number = Number(currentIndex) + 1
+        if (currentIndex && index < imageList.length) {
+          const imageSrc = imageList[index]
+          showPreNextBtn(preEle, nextEle, index, imageList.length)
+          imageBox?.querySelector('img')?.setAttribute('src', imageSrc);
+          imageBox?.querySelector('img')?.setAttribute('data-index', index + "")
+        }
+      }
+    });
+
     //上一步
     preEle.addEventListener('click', function () {
       const imageBox = document.querySelector(".image-box");
@@ -114,9 +114,6 @@ const init = () => {
   document.querySelector(".close-btn")?.addEventListener("click", function (event: Event) {
     const closeBtn: HTMLElement = event.currentTarget as HTMLElement;
     closeBtn.parentElement?.classList.toggle('show')
-    window.removeEventListener('keydown', () => {
-      console.log("remove keydown event")
-    })
   })
 }
 

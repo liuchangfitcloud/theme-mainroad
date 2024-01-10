@@ -118,6 +118,27 @@ body {
   padding: 0 1rem;
 }
 
+.thumbnail__image{
+  border-radius: .25rem;
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  -ms-border-radius: .25rem;
+  -o-border-radius: .25rem;
+}
+
+.thumbnail__image:hover{
+  transform:rotate(5deg) scale(1.1);
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  -webkit-transform:rotate(5deg) scale(1.1);
+  -moz-transform:rotate(5deg) scale(1.1);
+  -ms-transform:rotate(5deg) scale(1.1);
+  -o-transform:rotate(5deg) scale(1.1);
+}
+
 .archive-month::before{
   content: "";
   left: 0;
@@ -180,25 +201,6 @@ body {
   right: 0;
 }
 
-/* .photos_content{
-  padding-top: 2rem;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  row-gap: 1rem;
-  column-gap: 1rem;
-}
-
-.photos_content > div{
-  display: flex;
-}
-
-.photos_content img{
-  width: 12rem;
-  margin: auto 0;
-  cursor: pointer;
-} */
-
 @media screen and (min-width:640px) {
   .photos_content {
     column-count: 2;
@@ -254,6 +256,157 @@ body {
   left: 0;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.moments_menu{
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.moments_menu ul{
+  list-style: none;
+  display: inline-flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.moments_menu ul li{
+  position: relative;
+  background: #2a2a2a;
+  border-radius: .25rem;
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  -ms-border-radius: .25rem;
+  -o-border-radius: .25rem;
+}
+
+.moments_menu ul li.active{
+  background-color: var(--highlightColor);
+}
+
+.moments_menu ul li a{
+  padding: 0 .75rem;
+  line-height: 2rem;
+  color: #fff;
+}
+
+.moments_menu ul li .flag{
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  z-index: 1;
+  color: #2a2a2a;
+  top: 0;
+  font-weight: 600;
+  line-height: 1rem;
+  transform: translateX(50%) translateY(-50%);
+  font-size: .5rem;
+  padding: 0 0.5rem;
+  border: 1px solid #eee;
+  border-radius: .25rem;
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  -ms-border-radius: .25rem;
+  -o-border-radius: .25rem;
+  -webkit-transform: translateX(50%) translateY(-50%);
+  -moz-transform: translateX(50%) translateY(-50%);
+  -ms-transform: translateX(50%) translateY(-50%);
+  -o-transform: translateX(50%) translateY(-50%);
+}
+
+.moments_content{
+  margin-top: 2rem;
+}
+
+.moments_content ul{
+  list-style: none;
+}
+
+.moments_content ul li{
+  display: flex;
+  gap: 1rem;
+}
+
+.moments_content ul li .avatar{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  -ms-border-radius: 9999px;
+  -o-border-radius: 9999px;
+}
+
+.moments_content ul li .tag:before {
+  content: "#";
+}
+
+.moments_content ul li .tag{
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.375rem;
+  border-radius: 9999px;
+  background-color: rgba(9, 105, 218, .1);
+  padding: 0.25rem 0.5rem;
+  font-size: .75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  color: rgba(9, 105, 218, .8);
+}
+
+.moments_content .moments_html{
+  width: 100%;
+}
+
+.moments_content .moments_html .main_medium{
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  display: grid;
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  .moments_content .moments_html .main_medium {
+    width: 50%;
+  }
+}
+
+.moments_content .moments_html .main_medium > div{
+  --tw-aspect-w: 1;
+  --tw-aspect-h: 1;
+  padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+  position: relative;
+}
+
+.moments_content .moments_html .main_medium img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.moments_content .moments_html .tool-bar{
+  display: flex;
+  gap: 1rem;
+  margin: .75rem 0;
+  font-size: .75rem;
+  font-weight: 300;
+}
+
+.moments_content .moments_html .tool-bar > div{
+  display: flex;
+  gap: .25rem;
+}
+
+.moments_content .moments_html .tool-bar svg{
+  margin: auto 0;
 }
 
 .show{
