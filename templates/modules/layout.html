@@ -48,8 +48,9 @@
     <footer class="footer" th:if="${theme.config.bottombar.showBottom}">
       <th:block th:utext="${theme.config.bottombar.desc}">
       </th:block>
+      <halo:footer />
     </footer>
-    <footer>
+    <footer class="footer" th:unless="${theme.config.bottombar.showBottom}">
       <halo:footer />
     </footer>
   </div>
@@ -65,6 +66,28 @@
             fill="#ffffff" p-id="2458"></path>
         </svg>
       </a>
+    </div>
+    <div class="page-btn">
+      <div>
+        <a class="pre">
+          <svg t="1704790449056" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="2434" width="32" height="32">
+            <path
+              d="M767.411612 130.775657 700.386529 63.852903 253.723194 510.516239 700.386529 957.179574 767.411612 890.25682 387.773359 510.516239Z"
+              p-id="2435" fill="#ffffff"></path>
+          </svg>
+        </a>
+      </div>
+      <div>
+        <a class="next">
+          <svg t="1704790687541" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="3857" width="32" height="32">
+            <path
+              d="M633.361447 510.516239 253.723194 890.25682 320.748276 957.179574 767.411612 510.516239 320.748276 63.852903 253.723194 130.775657Z"
+              p-id="3858" fill="#ffffff"></path>
+          </svg>
+        </a>
+      </div>
     </div>
     <div class="image-box">
       <img src="/upload/2.9-restore-by-backup.webp" />
