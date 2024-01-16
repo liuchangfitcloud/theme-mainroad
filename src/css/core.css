@@ -364,7 +364,7 @@ body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   width: 100%;
   display: grid;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 
 @media screen and (min-width: 640px) {
@@ -380,6 +380,42 @@ body {
   position: relative;
 }
 
+.moments_content .moments_html .main_medium > div *{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.moments_content .moments_html .main_medium>div video{
+  object-fit: cover;
+  border-radius: .5rem;
+  -webkit-border-radius: .5rem;
+  -moz-border-radius: .5rem;
+  -ms-border-radius: .5rem;
+  -o-border-radius: .5rem;
+}
+
+.moments_content .moments_html .main_medium>div .icon{
+  width: 2rem;
+  height: 2rem;
+  margin: auto auto;
+}
+
+.moments_content .moments_html .main_medium>div .icon_controls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.moments_content .moments_html .main_medium>div .icon_controls:hover {
+  opacity: .7;
+}
+
 .moments_content .moments_html .main_medium img{
   position: absolute;
   height: 100%;
@@ -390,6 +426,7 @@ body {
   left: 0;
   object-fit: cover;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .moments_content .moments_html .tool-bar{
@@ -409,6 +446,10 @@ body {
   margin: auto 0;
 }
 
+.comment_card{
+  display: none;
+}
+
 .show{
   display: block;
 }
@@ -419,6 +460,15 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+.video-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20rem 10rem;
 }
 
 .close-btn{

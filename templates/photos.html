@@ -16,9 +16,9 @@
           </li>
         </ul>
       </div>
-      <div class="photos_content">
-        <div class="photos_content_img" th:each="photo : ${photos.items}">
-          <img th:src="${photo.spec.url}"
+      <div class="photos_content" id="photoCard">
+        <div class="photos_content_img" th:each="photo,stats : ${photos.items}">
+          <img th:data-src="${photo.spec.url}" th:data-index="${stats.index}" data-parent-node="photoCard" th:src="${photo.spec.url}" th:onclick="'showImage(this)'"
             th:alt="${photo.spec.displayName}" loading="lazy" />
         </div>
       </div>
