@@ -6,8 +6,13 @@
 **特征:**
 
 + 响应式设计
-+ 主菜单和二级菜单
-+ 小工具侧边栏
++ 自定义菜单
++ [支持友链](https://github.com/halo-sigs/plugin-links)
++ [支持图库](https://github.com/halo-sigs/plugin-photos)
++ [支持瞬间](https://github.com/halo-sigs/plugin-moments)
+
+**预览地址:**
+https://www.wggznb.top
 
 ## 安装
 
