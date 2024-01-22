@@ -12,7 +12,7 @@
 + [支持瞬间](https://github.com/halo-sigs/plugin-moments)
 
 **预览地址:**
-https://www.wggznb.top
+https://www.wggznb.top/?preview-theme=theme-mainroad
 
 ## 安装
 
