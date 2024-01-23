@@ -42,9 +42,8 @@ https://www.wggznb.top/?preview-theme=theme-mainroad
 ## 代码贡献
 
 您是否发现了错误或对新功能有了想法？请随时使用
-[issue tracker](https://github.com/liuchangfitcloud/theme-hugo-mainroad/issues) 让我知道. 或者直接提交
-[pull request](https://github.com/liuchangfitcloud/theme-hugo-mainroad/pulls)
+[issue tracker](https://github.com/liuchangfitcloud/theme-mainroad/issues) 让我知道. 或者直接提交[pull request](https://github.com/liuchangfitcloud/theme-mainroad/pulls)
 
 ## License
 
-This theme is released under the [GPLv2 license](https://github.com/liuchangfitcloud/theme-hugo-mainroad/blob/master/LICENSE.md).
+主题遵循 [GPLv2 license](https://github.com/liuchangfitcloud/theme-mainroad/blob/master/LICENSE.md).
