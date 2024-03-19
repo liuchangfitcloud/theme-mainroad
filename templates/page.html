@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(headtitle = |${singlePage.spec.title} - ${site.title}|, content = ~{::content})}">
   <th:block th:fragment="content">
-    <div class="content">
-      <div style="padding-top: 2rem;">
+    <div class="primary">
+      <main class="main" role="main">
         <article>
           <div th:utext="${singlePage.content.content}"></div>
         </article>
@@ -10,7 +10,7 @@
           <halo:comment group="content.halo.run" kind="SinglePage" th:attr="name=${singlePage.metadata.name}"
             colorScheme="document.documentElement.dataset.colorScheme" />
         </div>
-      </div>
+      </main>
     </div>
   </th:block>
 </html>
